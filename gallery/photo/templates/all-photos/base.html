@@ -14,9 +14,11 @@
   {% block styles %}
   {% bootstrap_css %}
   {% endblock %}
-  
+
 </head>
 <body>
+    {% include "navbar.html" %}
+    
     <h1>Testing</h1>
 
     {% block scripts %}
