@@ -26,16 +26,24 @@ class Image(models.Model):
     image = models.ImageField(upload_to = 'photos/',blank=True)
     image_name = models.CharField(max_length=100)
     image_description = models.TextField()
-    # image_location = models.ForeignKey(Location)
-    # image_category = models.ForeignKey(Category)
+    image_location = models.ForeignKey(Location)
+    image_category = models.ForeignKey(Category)
 
     def __str__(self):
         return self.image
 
-
     def save_image(self):
         return self.save()
 
+    @staticmethod
+    def update_image(id,image,image_name,image_description):
+
+        Image.objects.filter(pk=id).update(image=image,image_name=image_name,image_description=image_description)
+
+    def get_image_id(self,id):
+        return self.objects.get(pk=id)
+
     @classmethod
-    def update_image(cls,id,image,image_name,image_description):
-        cls.objects.filter(id=id).update(image=image,image_name=image_name,image_description=image_description)
+    def search_image(cls,category):
+        image = cls.objects.filter(title__icontains=category)
+        return image

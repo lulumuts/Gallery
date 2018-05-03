@@ -21,11 +21,17 @@ class ImageTestClass(TestCase):
     def test_update_method(self):
         self.image.save_image()
         kwargs={'image':'/photo','image_name':'myname','image_description':'myself'}
-        self.image.update_image(self.image.id,**kwargs)
-        self.assertNotEqual("myname",self.image.image_name)
+        Image.update_image(self.image.id,**kwargs)
+        self.assertEqual("myname",self.image.image_name)
 
 
-
+    def test_get_image_id(self):
+        image_id = id
+        self.image.objects.get(pk=id)
+        self.assertTrue(pk=id)
+        
+    def tearDown(self):
+        Image.objects.all().delete()
 
 class CategoryTestClass(TestCase):
 
