@@ -4,8 +4,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns=[
-    
-    url('^all/$',views.all_photos,name='photos'),
+
+    url('^$',views.all_photos,name='photos'),
     url(r'^search/$', views.search_photos, name='search_photos')
 ]
 if settings.DEBUG:
