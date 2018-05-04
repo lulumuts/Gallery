@@ -30,7 +30,7 @@ class Image(models.Model):
     image_category = models.ForeignKey(Category)
 
     def __str__(self):
-        return self.image
+        return self.image_name
 
     def save_image(self):
         return self.save()
@@ -44,6 +44,7 @@ class Image(models.Model):
         return self.objects.get(pk=id)
 
     @classmethod
-    def search_image(cls,category):
-        image = cls.objects.filter(title__icontains=category)
+    def search_image(cls,search_term):
+        image = cls.objects.filter(image_category__name__icontains=search_term)
+        print(image)
         return image
