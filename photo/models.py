@@ -48,3 +48,8 @@ class Image(models.Model):
         image = cls.objects.filter(image_category__name__icontains=search_term)
         print(image)
         return image
+
+    @classmethod
+    def all_photos(cls):
+        photos = cls.objects.all()
+        return photos

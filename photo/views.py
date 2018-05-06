@@ -8,8 +8,8 @@ def welcome(request):
     return render(request,'main.html')
 
 def all_photos(request):
-    date = dt.date.today()
-    return render(request,'all-photos/details.html', {"date" : date })
+    collection = Image.all_photos
+    return render(request,'all-photos/details.html', {"collection" : collection })
 
 def search_photos(request):
 

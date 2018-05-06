@@ -1,6 +1,20 @@
 {%extends 'all-photos/base.html'%}
 
+
+
 {% block content %}
 {{block.super}}
+
 <h1>what the hell</h2>
+
+
+    {% for collection_item in collection %}
+      <div class="col-sm-7 col-md-3 ">
+        <a href="{{image.image.url}}" target="_blank">
+          <img src="{{collection_item.image.url}}" class="img-responsive" alt="Image" style="height:400px;width:280px;padding-top:5%;">
+        </a>
+      </div>
+    {% endfor %}
+
+
 {% endblock %}
