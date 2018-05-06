@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse,Http404
 from .models import Image, Category, Location
 import datetime as dt
 
@@ -23,3 +23,9 @@ def search_photos(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'all-photos/search.html',{"message":message})
+
+def single_image(request,image_id):
+
+    image = Image.get_image_id
+
+    return render(request, "all-photos/single-photo.html",{"image":image})

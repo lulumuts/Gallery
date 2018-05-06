@@ -10,7 +10,8 @@
 
     {% for collection_item in collection %}
       <div class="col-sm-7 col-md-3 ">
-        <a href="{{image.image.url}}" target="_blank">
+        <a href="{{collection_item.image_id}}">
+          {{collection_item.image_name}}
           <img src="{{collection_item.image.url}}" class="img-responsive" alt="Image" style="height:400px;width:280px;padding-top:5%;">
         </a>
       </div>
