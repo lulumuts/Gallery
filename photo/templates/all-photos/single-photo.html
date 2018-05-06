@@ -1,25 +1,27 @@
 {%extends 'all-photos/base.html'%}
-
+{% url 'single_image' image.id%}
 
 
 {% block content %}
 {{block.super}}
+{% endblock %}
+
 
 <div class="container">
 
   <div class="row">
+    {% for single_item in single %}
     <img src="{{image.image.url}}"  class="img-responsive" alt="">
   </div>
 
   <div class="row">
-    <h1 class="text-center">{{image.image_name}}</h1>
+    <h1 class="text-center">{{single_item.single_name}}</h1>
   </div>
-
+  <h1>hey whats up{{image_item.image.description}}</h1>
   <div class="row">
     <p>{{image.image_description}}</p>
   </div>
 
 
 </div>
-
-{% endblock %}
+{%endfor%}

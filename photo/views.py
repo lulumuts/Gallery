@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse,Http404
 from .models import Image, Category, Location
+from django_modalview.generic.base import ModalTemplateView
+from django_modalview.generic.base import ModalTemplateUtilView
+from django_modalview.generic.component import ModalResponse
 import datetime as dt
 
 # Create your views here.
@@ -24,8 +27,15 @@ def search_photos(request):
         message = "You haven't searched for any term"
         return render(request, 'all-photos/search.html',{"message":message})
 
-def single_image(request,image_id):
+def single_image(request,id):
 
-    image = Image.get_image_id
+    try:
+        return Image.objects.get(pk=id)
+    except Image.DoesNotExist:
+        return False
 
-    return render(request, "all-photos/single-photo.html",{"image":image})
+
+
+    print(image_id)
+
+    return render(request, "all-photos/single-photo.html",{"single":single,"Image":Image})
