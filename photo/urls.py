@@ -10,7 +10,6 @@ urlpatterns=[
 
 ]
 if settings.DEBUG:
-    if settings.DEBUG:
     urlpatterns += [
         re_path(r'^static/(?P<path>.*)$', views.serve),
     ]
