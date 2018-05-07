@@ -11,7 +11,7 @@
 
   <script type="text/javascript" src="{% static 'django_modalview/js/bootstrap.min.js' %}"></script>
   <script type="text/javascript" src="{% static 'django_modalview/js/django_modal_view.js' %}"></script>
-  <script type="text/javascript" src="{% static 'photo/js/mymodal.js' %}"></script>
+
 
 
   {% if title %}
@@ -24,18 +24,35 @@
   {% block styles %}
   {% bootstrap_css %}
   <link rel="stylesheet" href="{% static 'css/photo.css' %}">
+  <link href="https://fonts.googleapis.com/css?family=Gothic+A1" rel="stylesheet">
   {% endblock %}
 
+  {% load staticfiles %}
+
+  <style type="text/css">
+          .jumbotron {
+           background: url('{% static "img/cactus.jpg" %}') no-repeat center center fixed;
+           -webkit-background-size: cover;
+           -moz-background-size: cover;
+           -o-background-size: cover;
+           background-size: cover;
+          }
+  </style>
 </head>
 <body>
     {% include "navbar.html" %}
+    <div class="jumbotron" style="margin-top:-7vh;height:80vh;">
+  <h1 class="display-4" style="text-align:center;margin-top:11vh;font-family: 'Gothic A1', sans-serif;color:grey;">Welcome to your photo gallery.</h1>
+
+  </p>
+</div>
 
     {%block content%}
 
 
     {% block scripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+<script type="text/javascript" src="{% static 'photo/js/mymodal.js' %}"></script>
     {% bootstrap_javascript %}
     {% endblock %}
     {% endblock %}
