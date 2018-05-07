@@ -1,9 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse,Http404
 from .models import Image, Category, Location
-from django_modalview.generic.base import ModalTemplateView
-from django_modalview.generic.base import ModalTemplateUtilView
-from django_modalview.generic.component import ModalResponse
 import datetime as dt
 
 # Create your views here.
