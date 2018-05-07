@@ -29,7 +29,12 @@ class ImageTestClass(TestCase):
         image_id = id
         self.image.objects.get(pk=id)
         self.assertTrue(pk=id)
-        
+
+    def test_search_image(self):
+        image_id = id
+        self.image.objects.filter()
+
+
     def tearDown(self):
         Image.objects.all().delete()
 
