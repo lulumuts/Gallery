@@ -1,5 +1,5 @@
 {%extends 'all-photos/base.html'%}
-{% load i18n %}
+
 
 
 {% block content %}
@@ -9,6 +9,8 @@
 
 
     {% for collection_item in collection %}
+    {{ forloop.parentloop.counter }}
+
 
       <div class="col-sm-7 col-md-3 ">
         <a href="{{collection_item.image.id}}">
@@ -17,9 +19,7 @@
           {{collection_item.image_name}}
 
           <div class="col-md-3">
-  <div class="thumbnail">
-    <img src="" >
-  </div>
+
   <p>Location: {{collection_item.location}}</p>
   <p>
 
@@ -41,7 +41,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save</button>
+
           </div>
         </div>
       </div>
@@ -51,7 +51,10 @@
 
 
       </div>
-    {% endfor %}
 
+    {% endfor %}
+    <script>$(document).ready(function () {$('img').on('click', function () {var image = $(this).attr('src');//alert(image);
+    $('#myModal').on('show.bs.modal', function () {$(".showimage").attr("src", image); }); });});
+    </script>
 
 {% endblock %}
