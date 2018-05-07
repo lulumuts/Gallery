@@ -31,8 +31,19 @@ def single_image(request,id):
     except Image.DoesNotExist:
         return False
 
-
-
     print(image_id)
 
     return render(request, "all-photos/single-photo.html",{"single":single,"Image":Image})
+
+def search_place(request):
+
+    if 'location' in request.GET and request.GET["location"]:
+        search_place = request.GET.get("location")
+        searched_places = Image.filter_by_location(search_place)
+        message = f"{search_place}"
+
+        return render(request,'all-photos/place.html',{"message":message, "location":searched_places})
+
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'all-photos/place.html',{"message":message})
